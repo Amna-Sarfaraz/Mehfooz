@@ -1,0 +1,8 @@
+mahfooz/node_modules
+mahfooz/.next
+mahfooz/out
+mahfooz/dist
+mahfooz/.env.local
+mahfooz/.env.development.local
+mahfooz/.env.test.local
+mahfooz/.env.production.local
