@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { AIChatBar } from "./AIChatBar";
 import { LessonCard } from "./LessonCard";
 
 export function ModuleCard({ title, description, href }) {
@@ -26,7 +25,6 @@ export function ModulePlaceholder({ title, description }) {
             title="Lesson content coming next"
             description="This route is now valid and ready for the actual lesson content from your module data files."
           />
-          <AIChatBar moduleName={title} />
         </div>
       </div>
     </main>
