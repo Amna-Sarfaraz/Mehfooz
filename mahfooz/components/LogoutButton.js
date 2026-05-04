@@ -1,5 +1,6 @@
 'use client';
 
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
@@ -25,3 +26,8 @@ export function LogoutButton({ style, className }) {
     </button>
   );
 }
+
+LogoutButton.propTypes = {
+  style: PropTypes.object,
+  className: PropTypes.string,
+};

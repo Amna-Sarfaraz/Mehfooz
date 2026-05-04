@@ -1,5 +1,6 @@
 'use client';
 
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useState } from 'react';
 import { AIChatBar } from '@/components/AIChatBar';
@@ -79,33 +80,33 @@ export function ModuleLessonPage({ moduleSlug, moduleLabel, lessons }) {
 
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="space-y-6">
-          {lesson.content.map((paragraph, index) => (
-            <p key={index} className="text-base leading-8 text-[#2a2a2a] sm:text-[17px]">
+          {lesson.content.map((paragraph) => (
+            <p key={paragraph.substring(0, 32)} className="text-base leading-8 text-[#2a2a2a] sm:text-[17px]">
               {paragraph}
             </p>
           ))}
         </div>
 
-        {lesson.highlight ? (
+        {lesson.highlight && (
           <div className="mt-8 rounded-r-xl border-l-[3px] border-[#d4a853] bg-white px-5 py-5 shadow-sm">
             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#c9a84c]">
               {lesson.highlight.label}
             </p>
             <p className="text-[15px] leading-7 text-[#444]">{lesson.highlight.text}</p>
           </div>
-        ) : null}
+        )}
 
-        {saveError ? (
+        {saveError && (
           <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {saveError}
           </div>
-        ) : null}
+        )}
 
-        {saveNotice ? (
+        {saveNotice && (
           <div className="mt-6 rounded-2xl border border-[#c9ddcf] bg-[#eef7f0] px-4 py-3 text-sm text-[#23543a]">
             {saveNotice}
           </div>
-        ) : null}
+        )}
       </main>
 
       <div className="border-t border-[#e2ded6] bg-white px-4 py-4 sm:px-6 lg:px-8">
@@ -121,7 +122,7 @@ export function ModuleLessonPage({ moduleSlug, moduleLabel, lessons }) {
           <div className="flex items-center justify-center gap-2">
             {lessons.map((_, index) => (
               <button
-                key={index}
+                key={`lesson-dot-${index}`}
                 onClick={() => goToLesson(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === current ? 'w-6 bg-[#1a3a2a]' : 'w-2 bg-[#d1d5db]'
@@ -155,3 +156,19 @@ export function ModuleLessonPage({ moduleSlug, moduleLabel, lessons }) {
     </div>
   );
 }
+
+ModuleLessonPage.propTypes = {
+  moduleSlug: PropTypes.string.isRequired,
+  moduleLabel: PropTypes.string.isRequired,
+  lessons: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(PropTypes.string).isRequired,
+      highlight: PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+      }),
+    })
+  ).isRequired,
+};

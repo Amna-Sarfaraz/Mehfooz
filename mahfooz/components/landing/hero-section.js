@@ -6,7 +6,7 @@ export function HeroSection() {
     <section className="relative overflow-hidden bg-hero">
       <div className="container relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-20 text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm animate-fade-in">
-          <span className="h-1.5 w-1.5 rounded-full bg-success" />
+          <span className="h-1.5 w-1.5 rounded-full bg-success" />{' '}
           Pakistan&apos;s investment learning platform
         </div>
 

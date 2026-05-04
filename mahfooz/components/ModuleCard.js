@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Link from "next/link";
 
 export function ModuleCard({ title, description, href }) {
@@ -11,3 +12,9 @@ export function ModuleCard({ title, description, href }) {
     </Link>
   );
 }
+
+ModuleCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};

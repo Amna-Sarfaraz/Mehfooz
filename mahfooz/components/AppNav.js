@@ -1,5 +1,6 @@
 'use client';
 
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -89,3 +90,8 @@ export function AppNav({ active = '', askAiHref = '/learn/savings#ask-ai' }) {
     </nav>
   );
 }
+
+AppNav.propTypes = {
+  active: PropTypes.string,
+  askAiHref: PropTypes.string,
+};

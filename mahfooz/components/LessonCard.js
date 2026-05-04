@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function LessonCard({ title, description }) {
   return (
     <article className="rounded-[24px] border border-border/80 bg-card p-6 shadow-soft">
@@ -6,3 +8,8 @@ export function LessonCard({ title, description }) {
     </article>
   );
 }
+
+LessonCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};

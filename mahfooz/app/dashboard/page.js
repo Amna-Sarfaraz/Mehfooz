@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import { supabase } from '@/lib/supabase'
 import { AppNav } from '@/components/AppNav'
 import { MODULES, MODULE_ICONS } from '@/data/modules-config'
@@ -14,7 +15,7 @@ export default function DashboardPage() {
     async function load() {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) {
-        window.location.href = '/auth'
+        globalThis.location.href = '/auth'
         return
       }
 
@@ -123,11 +124,11 @@ export default function DashboardPage() {
               </div>
               <p className="mb-1 text-sm font-medium text-[#1a1a16]">{module.name}</p>
               <p className="mb-4 text-xs leading-relaxed text-[#8a8070]">{module.desc}</p>
-              {module.completed ? (
+              {module.completed && (
                 <span className="mb-2 inline-block rounded-full bg-[#eaf3de] px-2 py-0.5 text-[10px] text-[#27500a]">
                   ✓ Completed
                 </span>
-              ) : null}
+              )}
               <div className="mb-1 flex justify-between text-[11px] text-[#8a8070]">
                 <span>Progress</span>
                 <span className="font-medium text-[#1a1a16]">{module.progress}%</span>
@@ -142,3 +143,5 @@ export default function DashboardPage() {
     </div>
   )
 }
+
+DashboardPage.propTypes = {}

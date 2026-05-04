@@ -76,7 +76,7 @@ export default function AuthPage() {
           <button
             type="button"
             onClick={() => setIsLogin(false)}
-            className={`flex-1 py-2 text-sm font-medium transition-colors ${!isLogin ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}
+            className={`flex-1 py-2 text-sm font-medium transition-colors ${isLogin ? 'text-muted-foreground' : 'bg-primary text-primary-foreground'}`}
           >
             Sign Up
           </button>
@@ -87,8 +87,9 @@ export default function AuthPage() {
         </h1>
 
         <div className="mb-4">
-          <label className="mb-1 block text-sm text-muted-foreground">Email</label>
+          <label htmlFor="email-input" className="mb-1 block text-sm text-muted-foreground">Email</label>
           <input
+            id="email-input"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -98,8 +99,9 @@ export default function AuthPage() {
         </div>
 
         <div className="mb-6">
-          <label className="mb-1 block text-sm text-muted-foreground">Password</label>
+          <label htmlFor="password-input" className="mb-1 block text-sm text-muted-foreground">Password</label>
           <input
+            id="password-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -116,7 +118,7 @@ export default function AuthPage() {
           {loading ? 'Please wait...' : isLogin ? 'Login' : 'Sign Up'}
         </button>
 
-        {feedback ? (
+        {feedback && (
           <p
             className={`mt-4 rounded-xl px-4 py-3 text-center text-sm ${
               feedback.type === 'error'
@@ -126,7 +128,7 @@ export default function AuthPage() {
           >
             {feedback.text}
           </p>
-        ) : null}
+        )}
       </form>
     </main>
   )

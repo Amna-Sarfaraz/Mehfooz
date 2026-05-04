@@ -1,6 +1,7 @@
 'use client'
 
-import { AppNav } from '../../components/AppNav'
+import PropTypes from 'prop-types'
+import { AppNav } from '@/components/AppNav'
 
 export default function QuizLayout({ children }) {
   return (
@@ -9,4 +10,8 @@ export default function QuizLayout({ children }) {
       {children}
     </>
   )
+}
+
+QuizLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 }

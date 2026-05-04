@@ -1,5 +1,6 @@
 'use client';
 
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 export function AIChatBar({ moduleSlug, moduleName = 'this topic' }) {
@@ -77,6 +78,7 @@ export function AIChatBar({ moduleSlug, moduleName = 'this topic' }) {
             value={question}
             onChange={(event) => setQuestion(event.target.value)}
             placeholder={`Ask anything about ${moduleName}...`}
+            aria-label={`Ask anything about ${moduleName}`}
             className="min-w-0 flex-1 border-0 bg-transparent text-sm text-[#333] outline-none placeholder:text-[#8a8a8a]"
           />
           <button
@@ -88,13 +90,13 @@ export function AIChatBar({ moduleSlug, moduleName = 'this topic' }) {
           </button>
         </form>
 
-        {error ? (
+        {error && (
           <div className="mt-3 rounded-[18px] border border-[#efc4c4] bg-[#fff4f4] px-4 py-3">
             <p className="text-sm text-[#a33333]">{error}</p>
           </div>
-        ) : null}
+        )}
 
-        {response ? (
+        {response && (
           <div className="mt-3 rounded-[18px] border border-[#e2ded6] bg-white p-5 shadow-sm">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-[#c9a84c]">
               Ask AI
@@ -114,8 +116,13 @@ export function AIChatBar({ moduleSlug, moduleName = 'this topic' }) {
               </div>
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </section>
   );
 }
+
+AIChatBar.propTypes = {
+  moduleSlug: PropTypes.string.isRequired,
+  moduleName: PropTypes.string,
+};
