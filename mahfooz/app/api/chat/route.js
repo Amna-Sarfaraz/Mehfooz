@@ -62,6 +62,10 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Please enter a question first.' }, { status: 400 });
     }
 
+    if (question.length > 500) {
+      return NextResponse.json({ error: 'Question is too long. Please keep it under 500 characters.' }, { status: 400 });
+    }
+
     const moduleData = MODULE_CONTEXT[moduleSlug];
     const lessonContext = buildLessonContext(moduleData.lessons);
 

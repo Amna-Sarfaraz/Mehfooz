@@ -17,6 +17,14 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Invalid progress request.' }, { status: 400 });
     }
 
+    if (typeof progress !== 'number' || !Number.isInteger(progress) || progress < 0 || progress > 100) {
+      return NextResponse.json({ error: 'Progress must be an integer between 0 and 100.' }, { status: 400 });
+    }
+
+    if (typeof completed !== 'boolean') {
+      return NextResponse.json({ error: 'Completed must be a boolean.' }, { status: 400 });
+    }
+
     const response = await fetch(
       `${supabaseUrl}/rest/v1/user_progress?on_conflict=user_id,module_slug`,
       {

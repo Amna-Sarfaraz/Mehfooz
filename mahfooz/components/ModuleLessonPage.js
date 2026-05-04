@@ -133,11 +133,11 @@ export function ModuleLessonPage({ moduleSlug, moduleLabel, lessons }) {
 
           {current === total - 1 ? (
             <Link
-              href="/quiz"
+              href="/dashboard"
               onClick={() => persistProgress(total - 1)}
               className="inline-flex items-center justify-center rounded-full bg-[#1a3a2a] px-6 py-2.5 text-sm font-medium text-white"
             >
-              Take quiz ✓
+              Complete module ✓
             </Link>
           ) : (
             <button
