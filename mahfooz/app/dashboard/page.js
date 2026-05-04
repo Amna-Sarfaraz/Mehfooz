@@ -48,7 +48,11 @@ export default function DashboardPage() {
     load()
   }, [])
 
-  const overall = modules.length ? Math.round(modules.reduce((sum, module) => sum + module.progress, 0) / modules.length) : 0
+  const overallProgress = modules.length
+    ? Math.round(modules.reduce((sum, module) => sum + module.progress, 0) / modules.length)
+    : 0
+
+  const overall = overallProgress
   const done = modules.filter((module) => module.completed).length
 
   if (loading) {

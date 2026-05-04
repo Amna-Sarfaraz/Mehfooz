@@ -1,12 +1,12 @@
 import { ModuleLessonPage } from '@/components/ModuleLessonPage';
-import { mutualFundLessons } from '@/data/mutual-funds';
+import { MODULE_CONTENT } from '@/data/content';
 
 export default function MutualFundsPage() {
   return (
     <ModuleLessonPage
       moduleSlug="mutual-funds"
       moduleLabel="Mutual Funds"
-      lessons={mutualFundLessons}
+      lessons={MODULE_CONTENT['mutual-funds']}
     />
   );
 }

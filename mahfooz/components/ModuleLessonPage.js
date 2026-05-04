@@ -120,9 +120,9 @@ export function ModuleLessonPage({ moduleSlug, moduleLabel, lessons }) {
           </button>
 
           <div className="flex items-center justify-center gap-2">
-            {lessons.map((_, index) => (
+            {lessons.map((lessonItem, index) => (
               <button
-                key={`lesson-dot-${index}`}
+                key={`dot-${lessonItem.title}`}
                 onClick={() => goToLesson(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === current ? 'w-6 bg-[#1a3a2a]' : 'w-2 bg-[#d1d5db]'

@@ -1,12 +1,12 @@
 import { ModuleLessonPage } from '@/components/ModuleLessonPage';
-import { budgetingLessons } from '@/data/budgeting';
+import { MODULE_CONTENT } from '@/data/content';
 
 export default function BudgetingPage() {
   return (
     <ModuleLessonPage
       moduleSlug="budgeting"
       moduleLabel="Budgeting"
-      lessons={budgetingLessons}
+      lessons={MODULE_CONTENT.budgeting}
     />
   );
 }

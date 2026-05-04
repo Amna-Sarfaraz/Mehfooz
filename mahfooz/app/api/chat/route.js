@@ -1,30 +1,26 @@
 import { NextResponse } from 'next/server';
-import { budgetingLessons } from '../../../data/budgeting';
-import { goldLessons } from '../../../data/gold';
-import { mutualFundLessons } from '../../../data/mutual-funds';
-import { psxLessons } from '../../../data/psx-stock';
-import { savingsLessons } from '../../../data/savings';
+import { MODULE_CONTENT } from '../../../data/content';
 
 const MODULE_CONTEXT = {
   savings: {
     name: 'Savings',
-    lessons: savingsLessons,
+    lessons: MODULE_CONTENT.savings,
   },
   gold: {
     name: 'Gold',
-    lessons: goldLessons,
+    lessons: MODULE_CONTENT.gold,
   },
   'mutual-funds': {
     name: 'Mutual Funds',
-    lessons: mutualFundLessons,
+    lessons: MODULE_CONTENT['mutual-funds'],
   },
   psx: {
     name: 'PSX Stocks',
-    lessons: psxLessons,
+    lessons: MODULE_CONTENT.psx,
   },
   budgeting: {
     name: 'Budgeting',
-    lessons: budgetingLessons,
+    lessons: MODULE_CONTENT.budgeting,
   },
 };
 

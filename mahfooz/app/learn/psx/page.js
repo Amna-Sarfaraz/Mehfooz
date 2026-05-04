@@ -1,8 +1,12 @@
 import { ModuleLessonPage } from '@/components/ModuleLessonPage';
-import { psxLessons } from '@/data/psx-stock';
+import { MODULE_CONTENT } from '@/data/content';
 
-export default function PsxPage() {
+export default function PSXPage() {
   return (
-    <ModuleLessonPage moduleSlug="psx" moduleLabel="PSX Stocks" lessons={psxLessons} />
+    <ModuleLessonPage
+      moduleSlug="psx"
+      moduleLabel="PSX Stocks"
+      lessons={MODULE_CONTENT.psx}
+    />
   );
 }

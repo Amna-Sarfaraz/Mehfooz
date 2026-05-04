@@ -1,8 +1,12 @@
 import { ModuleLessonPage } from '@/components/ModuleLessonPage';
-import { goldLessons } from '@/data/gold';
+import { MODULE_CONTENT } from '@/data/content';
 
 export default function GoldPage() {
   return (
-    <ModuleLessonPage moduleSlug="gold" moduleLabel="Gold" lessons={goldLessons} />
+    <ModuleLessonPage
+      moduleSlug="gold"
+      moduleLabel="Gold"
+      lessons={MODULE_CONTENT.gold}
+    />
   );
 }
